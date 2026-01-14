@@ -41,8 +41,21 @@ Start by understanding the current project context, then ask questions one at a 
 
 **Implementation (if continuing):**
 - Ask: "Ready to set up for implementation?"
-- Use superpowers:using-git-worktrees to create isolated workspace
-- Use superpowers:writing-plans to create detailed implementation plan
+
+### Implementation Checklist
+
+You MUST complete this checklist before writing any code. Create a TodoWrite entry for each item:
+
+- [ ] Design document committed to `docs/plans/`
+- [ ] ASK user: "Use a worktree for isolated workspace?" — if yes, INVOKE Skill tool with `superpowers:using-git-worktrees`
+- [ ] INVOKE Skill tool with `superpowers:writing-plans` to create implementation plan
+- [ ] Plan file exists and is committed
+
+<HARD-STOP>
+Do NOT write implementation code until all checklist items are complete.
+
+If you catch yourself writing code without completing this checklist, STOP IMMEDIATELY and invoke the missing skills.
+</HARD-STOP>
 
 ## Key Principles
 

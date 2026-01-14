@@ -131,7 +131,7 @@ go test ./...
 
 **If tests fail:** Report failures, ask whether to proceed or investigate.
 
-**If tests pass:** Report ready.
+**If tests pass:** Report ready, and change (`cd`) into the worktree directory to avoid command permission issues.
 
 ### 5. Report Location
 
