@@ -12,10 +12,10 @@ auto_create_tasks: true
 **BEFORE doing ANYTHING else when this skill is invoked, you MUST:**
 
 1. Immediately use TaskCreate to create these 4 tasks (in order):
-   - Task 1: "Commit design document to docs/plans/" (activeForm: "Committing design document")
-   - Task 2: "Ask user about git worktree setup" (activeForm: "Asking user about git worktree setup")
-   - Task 3: "Invoke writing-plans skill to create implementation plan" (activeForm: "Invoking writing-plans skill")
-   - Task 4: "Verify plan file exists and is committed" (activeForm: "Verifying plan file")
+   - Task 1: "Commit design document to docs/plans/" (activeForm: "Committing design document", description: "Write design to docs/plans/ and commit to git")
+   - Task 2: "Ask about worktree and create if requested" (activeForm: "Setting up git worktree if needed", description: "ASK user: 'Use a worktree for isolated workspace?' — if yes, INVOKE superpowers:using-git-worktrees BEFORE proceeding to Task 3")
+   - Task 3: "Invoke writing-plans skill to create implementation plan" (activeForm: "Invoking writing-plans skill", description: "Create implementation plan (in worktree if created in Task 2, otherwise on current branch)")
+   - Task 4: "Verify plan file exists and is committed" (activeForm: "Verifying plan file", description: "Confirm plan file is written and committed to current branch/worktree")
 
 2. After creating all 4 tasks, proceed with brainstorming activities below
 
@@ -93,10 +93,10 @@ If these tasks don't exist, CREATE THEM NOW before continuing.
 
 The pre-created tasks track this checklist:
 
-- [ ] Design document committed to `docs/plans/`
-- [ ] ASK user: "Use a worktree for isolated workspace?" — if yes, INVOKE Skill tool with `superpowers:using-git-worktrees`
-- [ ] INVOKE Skill tool with `superpowers:writing-plans` to create implementation plan
-- [ ] Plan file exists and is committed
+- [ ] Design document committed to `docs/plans/` (committed to main/current branch)
+- [ ] ASK user: "Use a worktree for isolated workspace?" — **if yes, INVOKE Skill tool with `superpowers:using-git-worktrees` BEFORE creating plan**
+- [ ] INVOKE Skill tool with `superpowers:writing-plans` to create implementation plan (in worktree if created, otherwise on current branch)
+- [ ] Plan file exists and is committed (to worktree or current branch)
 
 <HARD-STOP>
 Do NOT write implementation code until all checklist items are complete.
