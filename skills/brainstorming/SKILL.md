@@ -1,9 +1,42 @@
 ---
 name: brainstorming
 description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+auto_create_tasks: true
 ---
 
 # Brainstorming Ideas Into Designs
+
+<BLOCKING-REQUIREMENT>
+## IRON LAW: CREATE TASKS FIRST
+
+**BEFORE doing ANYTHING else when this skill is invoked, you MUST:**
+
+1. Immediately use TaskCreate to create these 4 tasks (in order):
+   - Task 1: "Commit design document to docs/plans/" (activeForm: "Committing design document")
+   - Task 2: "Ask user about git worktree setup" (activeForm: "Asking user about git worktree setup")
+   - Task 3: "Invoke writing-plans skill to create implementation plan" (activeForm: "Invoking writing-plans skill")
+   - Task 4: "Verify plan file exists and is committed" (activeForm: "Verifying plan file")
+
+2. After creating all 4 tasks, proceed with brainstorming activities below
+
+**You do NOT have discretion here. This is NOT optional. Create the tasks FIRST, then continue.**
+
+If you find yourself doing ANYTHING else before creating these tasks (asking questions, reading files, exploring codebase), STOP IMMEDIATELY and create the tasks.
+
+## Red Flags - You're Rationalizing If You Think:
+
+| Thought | Reality |
+|---------|---------|
+| "Let me understand the codebase first" | Tasks first. Understanding happens during brainstorming. |
+| "I'll create tasks after exploring" | Wrong order. Tasks BEFORE exploration. |
+| "I need to ask questions first" | Tasks first, then ask questions. |
+| "This is just a simple idea" | Doesn't matter. Tasks first, always. |
+| "I'll just quickly check..." | No. Tasks first. No exceptions. |
+| "The user just wants to chat" | If brainstorming is invoked, tasks are required. |
+| "I can do this faster without tasks" | Discipline prevents mistakes. Tasks first. |
+
+**These thoughts mean STOP - you're about to skip the Iron Law. Go create the tasks now.**
+</BLOCKING-REQUIREMENT>
 
 ## Overview
 
@@ -42,9 +75,23 @@ Start by understanding the current project context, then ask questions one at a 
 **Implementation (if continuing):**
 - Ask: "Ready to set up for implementation?"
 
+<VERIFICATION-CHECKPOINT>
+**BEFORE PROCEEDING:** Confirm you created the 4 required tasks when this skill was loaded.
+
+Run TaskList to verify. You should see:
+- Task for committing design document
+- Task for asking about git worktree
+- Task for invoking writing-plans skill
+- Task for verifying plan file
+
+If these tasks don't exist, CREATE THEM NOW before continuing.
+</VERIFICATION-CHECKPOINT>
+
 ### Implementation Checklist
 
-You MUST complete this checklist before writing any code. Use TaskCreate for each checklist item:
+**NOTE:** When this skill was invoked, these tasks were automatically created for you via the Iron Law above. Work through them in order using TaskUpdate to mark progress.
+
+The pre-created tasks track this checklist:
 
 - [ ] Design document committed to `docs/plans/`
 - [ ] ASK user: "Use a worktree for isolated workspace?" — if yes, INVOKE Skill tool with `superpowers:using-git-worktrees`
