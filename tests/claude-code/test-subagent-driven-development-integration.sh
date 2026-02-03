@@ -205,13 +205,14 @@ else
 fi
 echo ""
 
-# Test 3: TodoWrite was used for tracking
+# Test 3: Task tools were used for tracking
 echo "Test 3: Task tracking..."
-todo_count=$(grep -c '"name":"TodoWrite"' "$SESSION_FILE" || echo "0")
-if [ "$todo_count" -ge 1 ]; then
-    echo "  [PASS] TodoWrite used $todo_count time(s) for task tracking"
+task_create_count=$(grep -c '"name":"TaskCreate"' "$SESSION_FILE" || echo "0")
+task_update_count=$(grep -c '"name":"TaskUpdate"' "$SESSION_FILE" || echo "0")
+if [ "$task_create_count" -ge 1 ] && [ "$task_update_count" -ge 1 ]; then
+    echo "  [PASS] Task tools used (TaskCreate: $task_create_count, TaskUpdate: $task_update_count)"
 else
-    echo "  [FAIL] TodoWrite not used"
+    echo "  [FAIL] Task tools not used (TaskCreate: $task_create_count, TaskUpdate: $task_update_count)"
     FAILED=$((FAILED + 1))
 fi
 echo ""

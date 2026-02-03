@@ -57,7 +57,7 @@ The integration test verifies the `subagent-driven-development` skill correctly:
 3. **Verification**: Parses the session transcript (`.jsonl` file) to verify:
    - Skill tool was invoked
    - Subagents were dispatched (Task tool)
-   - TodoWrite was used for tracking
+   - Task tools were used for tracking
    - Implementation files were created
    - Tests pass
    - Git commits show proper workflow
@@ -81,7 +81,7 @@ Test 2: Subagents dispatched...
   [PASS] 7 subagents dispatched
 
 Test 3: Task tracking...
-  [PASS] TodoWrite used 5 time(s)
+  [PASS] Task tools used (TaskCreate: 5, TaskUpdate: 8)
 
 Test 6: Implementation verification...
   [PASS] src/math.js created

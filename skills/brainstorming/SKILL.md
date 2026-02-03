@@ -44,7 +44,7 @@ Start by understanding the current project context, then ask questions one at a 
 
 ### Implementation Checklist
 
-You MUST complete this checklist before writing any code. Create a TodoWrite entry for each item:
+You MUST complete this checklist before writing any code. Use TaskCreate for each checklist item:
 
 - [ ] Design document committed to `docs/plans/`
 - [ ] ASK user: "Use a worktree for isolated workspace?" — if yes, INVOKE Skill tool with `superpowers:using-git-worktrees`
