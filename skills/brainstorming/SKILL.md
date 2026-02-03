@@ -12,10 +12,10 @@ auto_create_tasks: true
 **BEFORE doing ANYTHING else when this skill is invoked, you MUST:**
 
 1. Immediately use TaskCreate to create these 4 tasks (in order):
-   - Task 1: "Commit design document to docs/plans/" (activeForm: "Committing design document", description: "Write design to docs/plans/ and commit to git")
-   - Task 2: "Ask about worktree and create if requested" (activeForm: "Setting up git worktree if needed", description: "ASK user: 'Use a worktree for isolated workspace?' — if yes, INVOKE superpowers:using-git-worktrees BEFORE proceeding to Task 3")
-   - Task 3: "Invoke writing-plans skill to create implementation plan" (activeForm: "Invoking writing-plans skill", description: "Create implementation plan (in worktree if created in Task 2, otherwise on current branch)")
-   - Task 4: "Verify plan file exists and is committed" (activeForm: "Verifying plan file", description: "Confirm plan file is written and committed to current branch/worktree")
+   - Task 1: "Ask about worktree and create if requested" (activeForm: "Setting up git worktree if needed", description: "ASK user: 'Use a worktree for isolated workspace?' — if yes, INVOKE superpowers:using-git-worktrees NOW before proceeding")
+   - Task 2: "Write and commit design document to docs/plans/" (activeForm: "Committing design document", description: "Write validated design to docs/plans/YYYY-MM-DD-<topic>-design.md and commit (to worktree if created in Task 1, otherwise to main)")
+   - Task 3: "Invoke writing-plans skill to create implementation plan" (activeForm: "Invoking writing-plans skill", description: "Create implementation plan in same location as design document")
+   - Task 4: "Verify plan file exists and is committed" (activeForm: "Verifying plan file", description: "Confirm plan file is written and committed to same branch as design")
 
 2. After creating all 4 tasks, proceed with brainstorming activities below
 
@@ -67,20 +67,20 @@ Start by understanding the current project context, then ask questions one at a 
 
 ## After the Design
 
-**Documentation:**
-- Write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
-- Use elements-of-style:writing-clearly-and-concisely skill if available
-- Commit the design document to git
+Once the design is validated, ask: "Ready to set up for implementation?"
 
-**Implementation (if continuing):**
-- Ask: "Ready to set up for implementation?"
+If yes, the pre-created tasks will guide you through:
+1. Setting up worktree (if user wants isolation)
+2. Writing and committing the design document (to worktree or main)
+3. Creating the implementation plan
+4. Verifying everything is committed
 
 <VERIFICATION-CHECKPOINT>
 **BEFORE PROCEEDING:** Confirm you created the 4 required tasks when this skill was loaded.
 
-Run TaskList to verify. You should see:
-- Task for committing design document
+Run TaskList to verify. You should see (in this order):
 - Task for asking about git worktree
+- Task for writing and committing design document
 - Task for invoking writing-plans skill
 - Task for verifying plan file
 
@@ -93,10 +93,10 @@ If these tasks don't exist, CREATE THEM NOW before continuing.
 
 The pre-created tasks track this checklist:
 
-- [ ] Design document committed to `docs/plans/` (committed to main/current branch)
-- [ ] ASK user: "Use a worktree for isolated workspace?" — **if yes, INVOKE Skill tool with `superpowers:using-git-worktrees` BEFORE creating plan**
-- [ ] INVOKE Skill tool with `superpowers:writing-plans` to create implementation plan (in worktree if created, otherwise on current branch)
-- [ ] Plan file exists and is committed (to worktree or current branch)
+- [ ] ASK user: "Use a worktree for isolated workspace?" — **if yes, INVOKE Skill tool with `superpowers:using-git-worktrees` NOW**
+- [ ] Write and commit design document to `docs/plans/` (to worktree if created, otherwise to main)
+- [ ] INVOKE Skill tool with `superpowers:writing-plans` to create implementation plan (in same location as design)
+- [ ] Plan file exists and is committed (to same branch as design)
 
 <HARD-STOP>
 Do NOT write implementation code until all checklist items are complete.
